@@ -3,9 +3,15 @@
 @gutter: 10px;
 @totalwidth: ((@width + @gutter)*24) - @gutter;
 
-/* FUNCTION FOR SETTING COLUMNS */
+/* FUNCTIONs FOR SETTING COLUMNS */
 /* e.g. to get a span-5 column, add a class of .span(5) */
 .span(@cols:1) {width:((@width) * @cols)+((@cols - 1) * @gutter);float:left;margin-right:@gutter;}
+
+/* APPEND, PREPEND, PULL AND PUSH */
+.append(@cols:1) {padding-right:@cols * (@width + @gutter);}
+.prepend(@cols:1) {padding-left:@cols * (@width + @gutter);}
+.pull(@cols:1) {margin-left: -(@cols * (@width + @gutter));float:left;position:relative;}
+.push(@cols:1) {margin: 0 -(@cols * (@width + @gutter)) 1.5em @cols * (@width + @gutter);float:left;position:relative;}
 
 /* add .last class to remove right margin from final column */
 .last{margin-right:0;}
@@ -23,7 +29,6 @@ div.prepend-top, .prepend-top { margin-top:1.5em;}div.append-bottom, .append-bot
 /* e.g. to get a 1s ease-in-out transition, add a class of .transition(1s,ease-in-out) */
 .transition(@speed:0.2s, @function:ease) {-webkit-transition: all @speed @function;-moz-transition: all @speed @function; transition: all @speed @function; -o-transition: all @speed @function;}
 
-
 /* MEDIA QUERIES */
 
 /* smaller */
@@ -32,7 +37,7 @@ div.prepend-top, .prepend-top { margin-top:1.5em;}div.append-bottom, .append-bot
 	@gutter: 10px;
 	@totalwidth: ((@width + @gutter)*24) - @gutter;	
 	.container {width: @totalwidth;margin: 0 auto;}.wrapper {width: @totalwidth + 10px;margin: 0 auto;}
-	.span(@cols:1) {width:((@width) * @cols)+((@cols - 1) * @gutter);float:left;margin-right:@gutter;.transition;}
+	.span(@cols:1) {width:((@width) * @cols)+((@cols - 1) * @gutter);float:left;margin-right:@gutter;.transition;}.append(@cols:1) {padding-right:@cols * (@width + @gutter);}.prepend(@cols:1) {padding-left:@cols * (@width + @gutter);}.pull(@cols:1) {margin-left: -(@cols * (@width + @gutter));float:left;position:relative;}.push(@cols:1) {margin: 0 -(@cols * (@width + @gutter)) 1.5em @cols * (@width + @gutter);float:left;position:relative;}
 	
 	/* ADD STYLES HERE */
 	
@@ -44,8 +49,7 @@ div.prepend-top, .prepend-top { margin-top:1.5em;}div.append-bottom, .append-bot
 	@gutter: 15px;
 	@totalwidth: ((@width + @gutter)*24) - @gutter;
 	.container {width: @totalwidth;margin: 0 auto;}.wrapper {width: @totalwidth + 10px;margin: 0 auto;}
-	.span(@cols:1) {width:((@width) * @cols)+((@cols - 1) * @gutter);float:left;margin-right:@gutter;.transition;}
+	.span(@cols:1) {width:((@width) * @cols)+((@cols - 1) * @gutter);float:left;margin-right:@gutter;.transition;}.append(@cols:1) {padding-right:@cols * (@width + @gutter);}.prepend(@cols:1) {padding-left:@cols * (@width + @gutter);}.pull(@cols:1) {margin-left: -(@cols * (@width + @gutter));float:left;position:relative;}.push(@cols:1) {margin: 0 -(@cols * (@width + @gutter)) 1.5em @cols * (@width + @gutter);float:left;position:relative;}
 	
-	/* ADD STYLES HERE */
-	
+	/* ADD STYLES HERE */	
 }
