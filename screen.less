@@ -3,7 +3,7 @@
 @gutter: 10px;
 @totalwidth: ((@width + @gutter)*24) - @gutter;
 
-/* FUNCTIONs FOR SETTING COLUMNS */
+/* FUNCTIONS FOR SETTING COLUMNS */
 /* e.g. to get a span-5 column, add a class of .span(5) */
 .span(@cols:1) {width:((@width) * @cols)+((@cols - 1) * @gutter);float:left;margin-right:@gutter;}
 
@@ -11,7 +11,7 @@
 .append(@cols:1) {padding-right:@cols * (@width + @gutter);}
 .prepend(@cols:1) {padding-left:@cols * (@width + @gutter);}
 .pull(@cols:1) {margin-left: -(@cols * (@width + @gutter));float:left;position:relative;}
-.push(@cols:1) {margin: 0 -(@cols * (@width + @gutter)) 1.5em @cols * (@width + @gutter);float:left;position:relative;}
+.push(@cols:1) {margin: 0 -(@cols * (@width + @gutter)) @gutter @cols * (@width + @gutter);float:left;position:relative;}
 
 /* add .last class to remove right margin from final column */
 .last{margin-right:0;}
@@ -23,21 +23,23 @@
 html{margin:0;padding:0;border:0}body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,code,del,dfn,em,img,q,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,dialog,figure,footer,header,hgroup,nav,section{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,dialog,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1.5;background:white}table{border-collapse:separate;border-spacing:0}caption,th,td{text-align:left;font-weight:normal;float:none!important}table,th,td{vertical-align:middle}blockquote:before,blockquote:after,q:before,q:after{content:''}blockquote,q{quotes:"" ""}a img{border:0}:focus{outline:0}ul{list-style: none;}
 
 /* MISC USEFUL STUFF*/
-div.prepend-top, .prepend-top { margin-top:1.5em;}div.append-bottom, .append-bottom {margin-bottom:1.5em;}.box {padding: 1.5em;margin-bottom: 1.5em;}.clearfix:after, .container:after, .wrapper:after {content: "\0020";display: block;height: 0;clear: both;visibility: hidden;overflow:hidden;}.clearfix, .container, .wrapper {display: block;}.clear { clear:both; }
+.prepend-top {margin-top:@gutter;}.append-bottom {margin-bottom:@gutter;}.box {padding: @gutter;}.clearfix:after, .container:after, .wrapper:after {content: "\0020";display: block;height: 0;clear: both;visibility: hidden;overflow:hidden;}.clearfix, .container, .wrapper {display: block;}.clear { clear:both; }
 
-/* TRANSITION */
+/* HANDY CSS3 STANDARDISERS */
 /* e.g. to get a 1s ease-in-out transition, add a class of .transition(1s,ease-in-out) */
-.transition(@speed:0.2s, @function:ease) {-webkit-transition: all @speed @function;-moz-transition: all @speed @function; transition: all @speed @function; -o-transition: all @speed @function;}
+.transition(@speed:0.2s, @function:ease) {-webkit-transition: all @speed @function;-moz-transition: all @speed @function; -o-transition: all @speed @function; transition: all @speed @function;}
+.rounded(@radius:3px) {-webkit-border-radius: @radius; -moz-border-radius: @radius; -o-border-radius:@radius; border-radius: @radius;}
+
+/* ADD MAIN STYLES HERE */
 
 /* MEDIA QUERIES */
-
 /* smaller */
-@media only screen and (min-width: 1px) and (max-width:1304px) {
+@media only screen and (min-width: 1px) and (max-width:950px) {
 	@width: 30px;
 	@gutter: 10px;
 	@totalwidth: ((@width + @gutter)*24) - @gutter;	
 	.container {width: @totalwidth;margin: 0 auto;}.wrapper {width: @totalwidth + 10px;margin: 0 auto;}
-	.span(@cols:1) {width:((@width) * @cols)+((@cols - 1) * @gutter);float:left;margin-right:@gutter;.transition;}.append(@cols:1) {padding-right:@cols * (@width + @gutter);}.prepend(@cols:1) {padding-left:@cols * (@width + @gutter);}.pull(@cols:1) {margin-left: -(@cols * (@width + @gutter));float:left;position:relative;}.push(@cols:1) {margin: 0 -(@cols * (@width + @gutter)) 1.5em @cols * (@width + @gutter);float:left;position:relative;}
+	.span(@cols:1) {width:((@width) * @cols)+((@cols - 1) * @gutter);float:left;margin-right:@gutter;.transition;}.append(@cols:1) {padding-right:@cols * (@width + @gutter);}.prepend(@cols:1) {padding-left:@cols * (@width + @gutter);}.pull(@cols:1) {margin-left: -(@cols * (@width + @gutter));float:left;position:relative;}.push(@cols:1) {margin: 0 -(@cols * (@width + @gutter)) @gutter @cols * (@width + @gutter);float:left;position:relative;}.prepend-top {margin-top:@gutter;}.append-bottom {margin-bottom:@gutter;}.box {padding: @gutter;}
 	
 	/* ADD STYLES HERE */
 	
@@ -49,7 +51,7 @@ div.prepend-top, .prepend-top { margin-top:1.5em;}div.append-bottom, .append-bot
 	@gutter: 15px;
 	@totalwidth: ((@width + @gutter)*24) - @gutter;
 	.container {width: @totalwidth;margin: 0 auto;}.wrapper {width: @totalwidth + 10px;margin: 0 auto;}
-	.span(@cols:1) {width:((@width) * @cols)+((@cols - 1) * @gutter);float:left;margin-right:@gutter;.transition;}.append(@cols:1) {padding-right:@cols * (@width + @gutter);}.prepend(@cols:1) {padding-left:@cols * (@width + @gutter);}.pull(@cols:1) {margin-left: -(@cols * (@width + @gutter));float:left;position:relative;}.push(@cols:1) {margin: 0 -(@cols * (@width + @gutter)) 1.5em @cols * (@width + @gutter);float:left;position:relative;}
+	.span(@cols:1) {width:((@width) * @cols)+((@cols - 1) * @gutter);float:left;margin-right:@gutter;.transition;}.append(@cols:1) {padding-right:@cols * (@width + @gutter);}.prepend(@cols:1) {padding-left:@cols * (@width + @gutter);}.pull(@cols:1) {margin-left: -(@cols * (@width + @gutter));float:left;position:relative;}.push(@cols:1) {margin: 0 -(@cols * (@width + @gutter)) @gutter @cols * (@width + @gutter);float:left;position:relative;}.prepend-top {margin-top:@gutter;}.append-bottom {margin-bottom:@gutter;}.box {padding: @gutter;}
 	
 	/* ADD STYLES HERE */	
 }
